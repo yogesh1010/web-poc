@@ -3,12 +3,28 @@
     <head>
         <title>Yo - PoCs</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@clayui/css/lib/css/atlas.css" />
+        <script type="text/javascript" src="https://platform.linkedin.com/in.js">
+            api_key: "78iqvrfcd5vm05"
+            onLoad: onLinkedInLoad
+            authorize: true
+        </script>
+        <script type="text/javascript">
+            function handleLinkedInLogin() {
+                alert("in handleLinkedInLogin");
+                IN.Event.on(IN, "auth", onLinkedInAuth);
+            }
+            function onLinkedInAuth() {
+                alert("onLinkedInAuth() has been called now.");
+            }
+        </script>  
     </head>
     <body>
         <div class="container">
             <div class="row">
-                <div class="col card">
-                    Linked-in profile poc
+                <div class="col card m-5 p-5">
+                    <div>Linked-in profile poc</div>
+                    <input type="button" onClick="handleLinkedInLogin();" class="btn btn-primary" value="Check Signin "/>
+                    <script type="IN/Login"></script>
                 </div>
             </div>
         </div>
